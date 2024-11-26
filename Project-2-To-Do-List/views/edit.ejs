@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Task</h1>
+        <form action="/updateTask" method="post">
+            <input type="hidden" name="id" value="<%= singleTask.id %>" />
+            <input type="text" placeholder="Task Title" name="title" value="<%= singleTask.title %>" required />
+            <input type="text" placeholder="Description" name="description" value="<%= singleTask.description %>" required />
+            <input type="time" placeholder="Work Time" name="workTime" value="<%= singleTask.workTime %>" required />
+            <input type="date" placeholder="Work Date" name="workDate" value="<%= singleTask.workDate %>" required />
+            <input type="number" placeholder="Work Hours" name="workHours" value="<%= singleTask.workHours %>" required />
+            <input type="text" placeholder="Priority" name="priority" value="<%= singleTask.priority %>" required />
+            <input type="text" placeholder="Status" name="status" value="<%= singleTask.status %>" required />
+            <button type="submit">Update Task</button>
+        </form>
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+        background: #E55D87;  
+        background: -webkit-linear-gradient(to right, #5FC3E4, #E55D87);  
+        background: linear-gradient(to right, #5FC3E4, #E55D87); 
+    }
+    .container {
+        width: 90%;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #007bff;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    form input {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+        transition: all 0.3s ease;
+    }
+
+    form input:focus {
+        border-color: #007bff;
+        background-color: #eef7ff;
+    }
+    form button {
+        padding: 10px;
+        font-size: 1rem;
+        background: #11998e; 
+        background: -webkit-linear-gradient(to right, #38ef7d, #11998e); 
+        background: linear-gradient(to right, #38ef7d, #11998e); 
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    form button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+</style>

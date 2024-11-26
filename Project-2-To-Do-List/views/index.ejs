@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <div class="container">
+    <h1>To-Do List</h1>
+    <form action="/addTask" method="post">
+        <input type="text" placeholder="Task Title" name="title" required />
+        <input type="text" placeholder="Description" name="description" required />
+        <input type="time" placeholder="Work Time" name="workTime" required />
+        <input type="date" placeholder="Work Date" name="workDate" required />
+        <input type="number" placeholder="Work Hours" name="workHours" required />
+        <input type="text" placeholder="Priority" name="priority" required />
+        <input type="text" placeholder="Status" name="status" required />
+        <button type="submit">Add Task</button>
+    </form>
+
+
+    <table border="1" style="width: 100%; margin-top: 20px;">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Work Time</th>
+            <th>Work Date</th>
+            <th>Work Hours</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        <% tasks.map((task) => { %>
+        <tr style="text-align: center;">
+            <td><%= task.id %></td>
+            <td><%= task.title %></td>
+            <td><%= task.description %></td>
+            <td><%= task.workTime %></td>
+            <td><%= task.workDate %></td>
+            <td><%= task.workHours %></td>
+            <td><%= task.priority %></td>
+            <td><%= task.status %></td>
+            <td>
+                <a class="a1" href="/editTask/<%= task.id %>">Edit</a> |
+                <a class="b1" href="/deleteTask?id=<%= task.id %>">Delete</a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</div>
+</body>
+</html>
+
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        color: #343a40;
+        background: #E55D87;  
+        background: -webkit-linear-gradient(to right, #5FC3E4, #E55D87);  
+        background: linear-gradient(to right, #5FC3E4, #E55D87);
+
+    }
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #007bff;
+        font-size: 2rem;
+    }
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+    form input, form button {
+        padding: 10px 15px;
+        font-size: 1rem;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        outline: none;
+        transition: all 0.3s ease;
+    }
+    form input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    form input:focus {
+        border-color: #007bff;
+        background-color: #e9f7ff;
+    }
+
+    form button {
+        /* background-color: #007bff; */
+        background: #11998e; 
+        background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
+        background: linear-gradient(to right, #38ef7d, #11998e); 
+        width: 70%;
+        color: black;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    form button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+    table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #dee2e6;
+    }
+
+    th {
+        /* background-color: #007bff; */
+        background-color: #3E5151;
+        color: #ffffff;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    tr:hover {
+        background-color: #e9f7ff;
+        transition: background-color 0.3s ease;
+    }
+
+     .a1 {
+        text-decoration: none;
+        color: rgba(0, 128, 0, 0.735);
+        font-weight: bold;
+    }
+    .a1:hover{
+        color: green;
+    }
+    .b1 {
+        text-decoration: none;
+        color: rgba(255, 0, 0, 0.758);
+        font-weight: bold;
+    }
+    .b1:hover{
+        color: red;
+    }
+
+</style>
